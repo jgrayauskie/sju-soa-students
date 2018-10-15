@@ -1,0 +1,19 @@
+{
+  "name": "sju-soa-students",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jgrayauskie/sju-soa-students.git"
+  },
+  "author": "Joe Grayauskie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jgrayauskie/sju-soa-students/issues"
+  },
+  "homepage": "https://github.com/jgrayauskie/sju-soa-students#readme"
+}

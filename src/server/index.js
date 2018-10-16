@@ -21,16 +21,16 @@ router.options('*', async (ctx, next) => {
 	await next();
 })
 
-router.get('/students', (ctx) => {
+router.get('/students', ctx => {
 	console.log('GET /students');
 	ctx.body = students;
 });
 
-router.post('/students', (ctx) => {
+router.post('/students', ctx => {
 	console.log('POST /students');
 	const body = ctx.request.body;
 	students.push(body);
-	ctx.body = students;
+	ctx.body = body;
 });
 
 app

@@ -2,8 +2,11 @@
   "name": "sju-soa-students",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/server",
   "scripts": {
+    "start": "node --harmony lib/server",
+    "transpile": "BABEL_ENV=node babel",
+    "build:server": "npm run transpile -- -d lib/server src/server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +18,22 @@
   "bugs": {
     "url": "https://github.com/jgrayauskie/sju-soa-students/issues"
   },
-  "homepage": "https://github.com/jgrayauskie/sju-soa-students#readme"
+  "homepage": "https://github.com/jgrayauskie/sju-soa-students#readme",
+  "dependencies": {
+    "koa": "^2.5.3",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.24.0",
+    "babel-eslint": "8.0.1",
+    "babel-loader": "7.1.4",
+    "babel-plugin-add-module-exports": "0.2.1",
+    "babel-plugin-istanbul": "4.1.5",
+    "babel-plugin-transform-require-ignore": "0.0.2",
+    "babel-plugin-transform-runtime": "6.23.0",
+    "babel-preset-es2015": "6.24.1",
+    "babel-preset-stage-0": "6.22.0"
+  }
 }

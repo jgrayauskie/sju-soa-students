@@ -1,0 +1,27 @@
+{
+	"presets": [
+		"es2015",
+		"stage-0"
+	],
+	"plugins": [
+		"transform-runtime",
+		"add-module-exports"
+	],
+	"env": {
+		"test": {
+			"plugins": [
+				["istanbul"],
+				["transform-require-ignore", {
+					"extensions": [".css", ".less"]
+				}]
+			]
+		},
+		"node": {
+			"plugins": [
+				["transform-require-ignore", {
+					"extensions": [".css", ".less"]
+				}]
+			]
+		}
+	}
+}

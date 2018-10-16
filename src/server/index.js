@@ -4,6 +4,7 @@ import bodyparser from 'koa-bodyparser';
 
 const app = new Koa();
 const router = new Router();
+const port = 5000;
 app.use(bodyparser({ jsonLimit: '7mb' }));
 
 const students = [];
@@ -21,6 +22,23 @@ router.options('*', async (ctx, next) => {
 	await next();
 })
 
+router.get('/discover', ctx => {
+	console.log('GET /discover');
+	const appEndPoints = {
+		students: {
+			read: {
+				path: `http://localhost:${port}/students`,
+				method: 'get'
+			},
+			create: {
+				path: `http://localhost:${port}/students`,
+				method: 'post'
+			}
+		}
+	}
+	ctx.body = appEndPoints;
+});
+
 router.get('/students', ctx => {
 	console.log('GET /students');
 	ctx.body = students;
@@ -37,6 +55,6 @@ app
 	.use(router.routes())
 	.use(router.allowedMethods());
 
-app.listen(5000, () => console.log('students server started 5000'));
+app.listen(port, () => console.log(`students server started ${port}`));
 
 export default app;

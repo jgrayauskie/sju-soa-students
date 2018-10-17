@@ -44,9 +44,23 @@ router.get('/students', ctx => {
 	ctx.body = students;
 });
 
+const getRandomInt = (min, max) => {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is exclusive and the minimum is inclusive
+};
+
 router.post('/students', ctx => {
 	console.log('POST /students');
 	const body = ctx.request.body;
+	// For demo purposes, this is a reference to the id of their advisor
+	const professorId = getRandomInt(0,1);
+	body.advisor = {
+		value: professorId,
+		link: {
+			href: 'http://localhost:8001/professors/' + professorId
+		}
+	};
 	students.push(body);
 	ctx.body = body;
 });
